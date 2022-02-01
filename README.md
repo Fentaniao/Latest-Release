@@ -18,11 +18,26 @@ A powerful application to automatically deploy GitHub Release.
 - 1
 
 ## Install
+There are many ways for you to install this program:
+
+## Run the script though exe file
+
+Only for Windows user.
 
 1. Turn to [GitHub releases page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
-2. Download the compression and decompress it.
+2. Download the **exe** file and decompress it.
 3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
 4. Run the exe file.
+
+## Run the script though Python
+
+You should first install Python3 into your desktop.
+
+1. Turn to [GitHub releases page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
+2. Download the **Source code (zip)** and decompress it.
+3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
+4. Install the package the scripts need.
+5. Run the main.py file.
 
 ## Usage
 
@@ -31,12 +46,12 @@ A powerful application to automatically deploy GitHub Release.
 After start the exe file, you can enter `help` in the Command Windows to see the commands with their description.
 
 ```
-                Command[<args>]        :           Usage
-                list/ls                :           List installed apps
-                status/st              :           Show status and check for new app versions
-                update/up              :           Update all apps
-                config/cf              :           Open config file to add an app or modify other settings
-                exit/et                :           Exit the shell
+    Command[<args>]        :           Usage
+    list/ls                :           List installed apps
+    status/st              :           Show status and check for new app versions
+    update/up              :           Update all apps
+    config/cf              :           Open config file to add an app or modify other settings
+    exit/et                :           Exit the shell
 ```
 
 ### How to Configure the `config.yaml` file

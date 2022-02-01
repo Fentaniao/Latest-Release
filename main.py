@@ -8,6 +8,7 @@ if __name__ == '__main__':
         pass
     else:
         print('Please add config.yaml file before running.')
+        input()
         exit()
 
     manager = GitRepoManager()

@@ -18,9 +18,9 @@ A powerful application to automatically deploy GitHub Release.
 - 1
 
 ## Install
-There are many ways for you to install this program:
+There are many ways for you to install this program.
 
-## Run the script though exe file
+### Run the script though exe file
 
 Only for Windows user.
 
@@ -29,7 +29,7 @@ Only for Windows user.
 3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
 4. Run the exe file.
 
-## Run the script though Python
+### Run the script though Python
 
 You should first install Python3 into your desktop.
 
@@ -66,7 +66,7 @@ proxy:
 repos:
   - author: Fentaniao
     name: Liquid
-    tag: v
+    tag: 
     key: Liquid.zip
     target: 
     compress_setting: { decompress: auto, clean: true }

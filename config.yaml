@@ -1,0 +1,11 @@
+path: download
+proxy:
+  http: http://127.0.0.1:7890
+  https: http://127.0.0.1:7890
+repos:
+  - author: Fentaniao
+    name: Liquid
+    tag:
+    key: Liquid.zip
+    target:
+    compress_setting: { decompress: auto, clean: true }

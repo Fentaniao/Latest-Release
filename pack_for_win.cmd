@@ -1,0 +1,9 @@
+@echo Update pip...
+python -m pip install --upgrade pip
+@echo Update pip...
+pip install pyinstaller
+python -m PyInstaller --version
+@echo Start packing...
+python -m PyInstaller -F main.py
+@echo Finish packing.
+pause

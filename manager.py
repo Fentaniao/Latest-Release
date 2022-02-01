@@ -5,7 +5,7 @@ import yaml
 
 from download import DownloadManager
 from spider import GitRepoSpider
-import decompress
+
 
 class GitRepoManager:
 
@@ -42,7 +42,8 @@ class GitRepoManager:
 
                     compress_setting = repo['compress_setting']
                     if download_suffixes in ['gz', 'tar', 'zip', 'rar']:
-                        eval('decompress.un_' + download_suffixes + '(r\'' + repo['target'] + '\', r\'' + download_name + '\', r\''+compress_setting['decompress']+'\')')
+                        eval('decompress.un_' + download_suffixes + '(r\'' + repo[
+                            'target'] + '\', r\'' + download_name + '\', r\'' + compress_setting['decompress'] + '\')')
                         if compress_setting['clean']:
                             os.remove(repo['target'] + '/' + download_name)
         print('Now everything is up to date.')

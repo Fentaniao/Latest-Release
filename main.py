@@ -1,9 +1,19 @@
+import os
+
 from manager import GitRepoManager
 
 if __name__ == '__main__':
+    # 自检
+    if os.path.exists('config.yaml'):
+        pass
+    else:
+        print('Please add config.yaml file before running.')
+        exit()
+
     manager = GitRepoManager()
     print(
-        'Welcome to GitRepoAssets Manager\n'
+        'Welcome to Command Windows for Latest Release\n'
+        'Github repo: https://github.com/Fentaniao/Latest-Release\n'
         'Enter help for more actions'
     )
     while True:

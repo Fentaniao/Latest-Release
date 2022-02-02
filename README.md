@@ -6,7 +6,6 @@
 <!--    <img alt="C#" src="https://img.shields.io/badge/-C_Sharp-9f62a5?style=flat&logo=csharp&logoColor=white" />
     <img alt="WinUI_3" src="https://img.shields.io/badge/-WinUI_3-9f62a5?style=flat&logo=windows&logoColor=white" />-->
 </p>
-
 [English Readme](https://github.com/Fentaniao/Latest-Release/blob/main/README.md) | [中文自述文件](https://github.com/Fentaniao/Latest-Release/blob/main/README_zh.md)
 
 A powerful application to automatically deploy GitHub Release.
@@ -24,24 +23,29 @@ A powerful application to automatically deploy GitHub Release.
 - Hot update support for configuration files
 
 ## Install
+
 There are many ways for you to install this program.
 
 ### Run the script though exe file
 
 Only for Windows user.
 
-1. Turn to [GitHub Releases Page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
+1. Turn to [GitHub Releases Page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the
+   bottom to show the files available in the release.
 2. Download the **Latest Release.zip** file and decompress it.
-3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
+3. Create the `config.yaml` file and then configure it by referencing to the Usage
+   in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
 4. Run the exe file **though Command Window**.
 
 ### Run the script though Python
 
 This approach requires you to install Python3 into your desktop first.
 
-1. Turn to [GitHub Releases Page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
+1. Turn to [GitHub Releases Page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the
+   bottom to show the files available in the release.
 2. Download the **Source code (zip)** and decompress it.
-3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
+3. Create the `config.yaml` file and then configure it by referencing to the Usage
+   in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
 4. Install the package the scripts need.
 5. Run the main.py file.
 

@@ -3,11 +3,9 @@ import re
 
 import yaml
 
+import decompress
 from download import DownloadManager
 from spider import GitRepoSpider
-import decompress
-
-# import decompress
 
 
 class GitRepoManager:
@@ -68,3 +66,6 @@ class GitRepoManager:
             os.system('code ' + self.config_path)
         except:
             os.system('notepad ' + self.config_path)
+
+    def empty(self):
+        decompress.un_zip('a', 'b', 'c')

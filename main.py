@@ -18,7 +18,7 @@ repos:
     tag:
     key: Liquid.zip
     target:
-    compress_setting: { decompress: auto, clean: true }
+    setting: { decompress: auto, clean: true }
     '''
         with open('config.yaml', 'w', encoding='utf-8') as f:  # 如果filename不存在会自动创建， 'w'表示写数据，写之前会清空文件中的原有数据！
             f.write(config_default)

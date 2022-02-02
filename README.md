@@ -13,9 +13,15 @@ A powerful application to automatically deploy GitHub Release.
 
 ## Features
 
-- 1
-- 1
-- 1
+### Highly automated processes
+
+- Includes auto-unzip and auto-clean features
+- Automatic installation feature is under development
+
+### Simple yet powerful configuration solutions
+
+- Requires only one configuration and can be used all the time
+- Hot update support for configuration files
 
 ## Install
 There are many ways for you to install this program.
@@ -24,16 +30,16 @@ There are many ways for you to install this program.
 
 Only for Windows user.
 
-1. Turn to [GitHub releases page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
-2. Download the **exe** file and decompress it.
+1. Turn to [GitHub Releases Page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
+2. Download the **Latest Release.zip** file and decompress it.
 3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
-4. Run the exe file.
+4. Run the exe file **though Command Window**.
 
 ### Run the script though Python
 
-You should first install Python3 into your desktop.
+This approach requires you to install Python3 into your desktop first.
 
-1. Turn to [GitHub releases page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
+1. Turn to [GitHub Releases Page](https://github.com/Fentaniao/Latest-Release/releases), then click on **Assets** at the bottom to show the files available in the release.
 2. Download the **Source code (zip)** and decompress it.
 3. Create the `config.yaml` file and then configure it by referencing to the Usage in [`README.md`.](https://github.com/Fentaniao/Latest-Release/blob/main/README.md)
 4. Install the package the scripts need.
@@ -69,58 +75,34 @@ repos:
     tag: 
     key: Liquid.zip
     target: 
-    compress_setting: { decompress: auto, clean: true }
+    setting: { decompress: auto, clean: true }
 ```
 
-#### `path`
+#### Parameters
 
-##### 参数
-
-| 参数   | 数据类型 | 默认值 | 说明                                             |
+| Parameter | Type | Default | Description                                    |
 | ------ | -------- | ------ | ------------------------------------------------ |
-| `path` | 字符串   | -      | 默认储存路径，未指定target时自动存储到path路径下 |
-| `proxy` | 字典   | -      | 代理信息 |
-| `repos` | 字典   | -      | 存储库信息 |
+| `path` | `str` | -      | Default storage path, automatically stored under `path` if `target` is not specified |
+| `proxy` | `dict` | -      | Proxy Information |
+| `repos` | `dict` | -      | Repository Information |
 
-##### 注意
+#### `repos`Repository Information
 
-- 变量名要求为单个字母
-
-- 支持希腊字母（以英文拼写）和数学常数
-
-
-#### `repos`存储库信息
-
-##### 参数
-
-| 参数         | 数据类型 | 默认值 | 说明       |
+| Parameter  | Type | Default | Description |
 | ------------ | -------- | ------ | ---------- |
-| `author` | 字符串   | -      | 存储库所有者 |
-| `name` | 字符串   | -      | 存储库名称 |
-| `tag` | 字符串   | -                                   | 发行版的标签 |
-| `key` | 字符串   | "all"      | 要下载的文件名 |
-| `target` | 字符串   | path      | 下载文件的路径 |
-| `compress_setting` | 字典   | { decompress: auto, clean: true }      | 解压设置 |
+| `author` | `str` | -      | Repository Owner |
+| `name` | `str` | -      | Repository Name |
+| `tag` | `str` | -                                   | tag of Release |
+| `key` | `str` | "all"      | Name of the file to be downloaded |
+| `target` | `str` | path      | Path to download file |
+| `setting` | `dict` | { decompress: auto, clean: true }      | Decompression settings |
 
 #### `setting`设置
 
-##### 参数
-
-| 参数         | 数据类型 | 默认值 | 说明       |
+| Parameter  | Type | Default | Description |
 | ------------ | -------- | ------ | ---------- |
-| `decompress` | 字符串   | "auto"      | 解压方式，"auto"表示自动解压，"to_floder"表示 |
-| `clean` | 字符串   | true      | true表示解压完成后自动清理压缩文件 |
-
-##### 说明
-
-- 变量名要求为单个字母
-
-- 支持希腊字母（以英文拼写）和数学常数
-
-
-#### Default configuration
-
-1
+| `decompress` | `str` | -      | Decompression method, `auto` means automatically decompress, other non-empty `str` means install in the same name directory, put empty then decompress to `file_name + '_files'` directory |
+| `clean` | `str` | true      | `true` means the zip file will be cleaned up automatically after decompression is completed |
 
 ## Roadmap
 

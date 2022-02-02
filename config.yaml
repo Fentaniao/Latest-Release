@@ -8,4 +8,4 @@ repos:
     tag:
     key: Liquid.zip
     target:
-    compress_setting: { decompress: auto, clean: true }
+    setting: { decompress: auto, clean: true }

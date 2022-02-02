@@ -5,6 +5,9 @@ import yaml
 
 from download import DownloadManager
 from spider import GitRepoSpider
+import decompress
+
+# import decompress
 
 
 class GitRepoManager:
@@ -37,15 +40,21 @@ class GitRepoManager:
                     print('Start downloading from ' + download_name)
                     downloading.download(download_url, download_name, repo['target'])
 
+                    if repo['target'] == '':
+                        file_path = self.path + '\\' + repo['name'] + '\\' + tag
+                    else:
+                        file_path = repo['target']
+
+                    # 下载完成后进行文件处理
                     pattern = re.compile(r'[^.]+$')
                     download_suffixes = re.search(pattern, download_name).group()
-
-                    compress_setting = repo['compress_setting']
+                    setting = repo['setting']
                     if download_suffixes in ['gz', 'tar', 'zip', 'rar']:
-                        eval('decompress.un_' + download_suffixes + '(r\'' + repo[
-                            'target'] + '\', r\'' + download_name + '\', r\'' + compress_setting['decompress'] + '\')')
-                        if compress_setting['clean']:
-                            os.remove(repo['target'] + '/' + download_name)
+                        eval(
+                            'decompress.un_' + download_suffixes + '(r\'' + file_path + '\', r\'' + download_name + '\', r\'' +
+                            setting['decompress'] + '\')')
+                        if setting['clean']:
+                            os.remove(file_path + '/' + download_name)
         print('Now everything is up to date.')
 
     def list_all(self):

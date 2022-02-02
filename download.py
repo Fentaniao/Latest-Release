@@ -1,7 +1,7 @@
 import os
 
 import requests
-import yaml
+import ruamel.yaml
 from tqdm import tqdm
 
 
@@ -35,12 +35,13 @@ class DownloadManager:
                     if chunk:
                         fp.write(chunk)
                         bar.update(len(chunk))
-        # self.update_tag()
+        self.update_tag()
 
     def update_tag(self):
         config_path = 'config.yaml'
         config_file = open(config_path, 'r', encoding='utf-8').read()
-        config = yaml.load(config_file, Loader=yaml.BaseLoader)
+        yaml = ruamel.yaml.YAML()
+        config = yaml.load(config_file)
         for index, repo in enumerate(config['repos']):
             if repo['name'] == self.name:
                 config['repos'][index]['tag'] = self.tag

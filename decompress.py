@@ -12,14 +12,34 @@ import zipfile
 import rarfile
 
 
+# 根据输入的字符串确定解压方式
+def decompress_path(file_path, file_name, way):
+    if way == 'auto':
+        decompress_to = file_path
+    # 因为解压后是很多文件，预先建立同名目录
+    elif way is not '':
+        if os.path.isdir(way):
+            pass
+        else:
+            os.mkdir(way)
+        decompress_to = way + '/'
+    else:
+        if os.path.isdir(file_name + '_files'):
+            pass
+        else:
+            os.mkdir(file_name + '_files')
+        decompress_to = file_name + '_files/'
+    return decompress_to
+
+
 # gz
 # 因为gz一般仅仅压缩一个文件，全部常与其它打包工具一起工作。比方能够先用tar打包为XXX.tar,然后在压缩为XXX.tar.gz
 # 解压gz，事实上就是读出当中的单一文件
-def un_gz(file_name):
+def un_gz(file_path, file_name, way):
     """ungz zip file"""
-    f_name = file_name.replace('.gz', '')
+    f_name = (file_path + '/' + file_name).replace('.gz', '')
     # 获取文件的名称，去掉
-    g_file = gzip.GzipFile(file_name)
+    g_file = gzip.GzipFile(file_path + '/' + file_name)
     # 创建gzip对象
     open(f_name, 'w+').write(g_file.read())
     # gzip对象用read()打开后，写入open()建立的文件里。
@@ -32,36 +52,22 @@ def un_gz(file_name):
 # 注：tgz与tar.gz是同样的格式，老版本号DOS扩展名最多三个字符，故用tgz表示。
 # 因为这里有多个文件，我们先读取全部文件名称。然后解压。例如以下：
 # 注：tgz文件与tar文件同样的解压方法。
-def un_tar(file_name):
+def un_tar(file_path, file_name, way):
     # untar zip file"""
-    tar = tarfile.open(file_name)
+    tar = tarfile.open(file_path + '/' + file_name)
     names = tar.getnames()
-    # 因为解压后是很多文件，预先建立同名目录
-    if os.path.isdir(file_name + "_files"):
-        pass
-    else:
-        os.mkdir(file_name + "_files")
     for name in names:
-        tar.extract(name, file_name + "_files/")
+        tar.extract(name, decompress_path(file_path, file_name, way))
     tar.close()
 
 
 # zip
-# 与tar类似，先读取多个文件名称，然后解压。例如以下：
-
-def un_zip(file_path,file_name, way):
+# 与tar类似，先读取多个文件名称，然后解压。
+def un_zip(file_path, file_name, way):
     """unzip zip file"""
-    zip_file = zipfile.ZipFile(file_path+'/'+file_name)
-    if way == 'auto':
-        compress_to = file_path
-    else:
-        if os.path.isdir(file_name + '_files'):
-            pass
-        else:
-            os.mkdir(file_name + '_files')
-        compress_to = file_name + '_files/'
+    zip_file = zipfile.ZipFile(file_path + '/' + file_name)
     for names in zip_file.namelist():
-        zip_file.extract(names, compress_to)
+        zip_file.extract(names, decompress_path(file_path, file_name, way))
     zip_file.close()
 
 
@@ -71,14 +77,10 @@ def un_zip(file_path,file_name, way):
 # 解压到Python安装文件夹的/Scripts/文件夹下，在当前窗体打开命令行,
 # 输入Python setup.py install
 # 安装完毕。
-def un_rar(file_name):
+def un_rar(file_path, file_name, way):
     """unrar zip file"""
-    rar = rarfile.RarFile(file_name)
-    if os.path.isdir(file_name + '_files'):
-        pass
-    else:
-        os.mkdir(file_name + '_files')
-    os.chdir(file_name + '_files')
+    rar = rarfile.RarFile(file_path + '/' + file_name)
+    os.chdir(decompress_path(file_path, file_name, way))
     rar.extractall()
     rar.close()
 

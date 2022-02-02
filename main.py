@@ -2,13 +2,9 @@ import os
 
 from manager import GitRepoManager
 
-if __name__ == '__main__':
-    print(
-        'Welcome to Command Windows for Latest Release.\n'
-        'Github repo: https://github.com/Fentaniao/Latest-Release.\n'
-        'Enter help for more actions.'
-    )
-    # 自检
+
+# 启动自检程序
+def self_check():
     if not os.path.exists('config.yaml'):
         print('\nInitial config.yaml file...')
         config_default = '''\
@@ -27,8 +23,17 @@ repos:
         with open('config.yaml', 'w', encoding='utf-8') as f:  # 如果filename不存在会自动创建， 'w'表示写数据，写之前会清空文件中的原有数据！
             f.write(config_default)
         print('Complete initialization.\n'
-              'Please fill in you own configuration in config.yaml file, you can turn to README.md for help.'
+              'Please fill in you own configuration in config.yaml file first, you can turn to README.md for help.'
               )
+
+
+if __name__ == '__main__':
+    print(
+        'Welcome to Command Windows for Latest Release.\n'
+        'Github repo: https://github.com/Fentaniao/Latest-Release.\n'
+        'Enter help for more actions.'
+    )
+    self_check()
 
     while True:
         manager = GitRepoManager()

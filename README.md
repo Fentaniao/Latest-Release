@@ -101,7 +101,7 @@ repos:
 | `target` | `str` | path      | Path to download file |
 | `setting` | `dict` | { decompress: auto, clean: true }      | Decompression settings |
 
-#### `setting`设置
+#### `setting`Detail Settings
 
 | Parameter  | Type | Default | Description |
 | ------------ | -------- | ------ | ---------- |

@@ -1,7 +1,7 @@
 # Latest Release
 
 <p>
-    <img src="https://img.shields.io/github/v/release/fentaniao/Latest--Release?&color=blue&logo=hack-the-box)" />
+    <img src="https://img.shields.io/github/v/release/fentaniao/Latest-Release?&color=blue&logo=hack-the-box)" />
     <img alt="C++" src="https://img.shields.io/badge/-Python-9f62a5?style=flat&logo=python&logoColor=white" />
 <!--    <img alt="C#" src="https://img.shields.io/badge/-C_Sharp-9f62a5?style=flat&logo=csharp&logoColor=white" />
     <img alt="WinUI_3" src="https://img.shields.io/badge/-WinUI_3-9f62a5?style=flat&logo=windows&logoColor=white" />-->

@@ -2,6 +2,7 @@
 #config.yaml
 
 test.*
+*.zip
 .idea/
 test/
 download/
